@@ -310,7 +310,7 @@ if ($requestUri === '/api/text-intelligence' && $requestMethod === 'POST') {
         $fetchedContent = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $curlError = curl_error($ch);
-        curl_close($ch);
+    
 
         if ($fetchedContent === false) {
             sendError(400, 'validation_error', 'INVALID_URL', 'Failed to fetch URL: ' . $curlError);
@@ -378,7 +378,7 @@ if ($requestUri === '/api/text-intelligence' && $requestMethod === 'POST') {
     $dgResponse = curl_exec($ch);
     $dgHttpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     $dgCurlError = curl_error($ch);
-    curl_close($ch);
+
 
     if ($dgResponse === false) {
         error_log('Deepgram API Error: ' . $dgCurlError);
